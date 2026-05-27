@@ -42,7 +42,12 @@ app.use((err, req, res, next) => {
 
 // ─── Inicio del servidor ─────────────────────────────────────────────────────
 
-app.listen(PORT, () => {
-  console.log(`✓ Servidor SINTRAAPP corriendo en http://localhost:${PORT}`);
-  console.log(`  Endpoint OCR: POST http://localhost:${PORT}/api/procesar-factura`);
+// 1. Definimos el puerto de Railway o el 3000 por defecto si estás en tu PC
+const port = process.env.PORT || 3000;
+
+// 2. Agregamos '0.0.0.0' para que Railway pueda redirigir los usuarios a tu app
+app.listen(port, '0.0.0.0', () => {
+  console.log(`✓ Servidor SINTRAAPP corriendo en el puerto: ${port}`);
+  console.log(`  Endpoint OCR listo para recibir peticiones`);
 });
+
