@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Evita el zoom automático en inputs en iOS al hacer foco */
+input, select, textarea {
+  font-size: 16px;
+}
