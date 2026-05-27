@@ -29,12 +29,12 @@ app.get('/health', (req, res) => {
 
 // ─── Conexión con el Frontend (Interfaz Visual) ──────────────────────────────
 
-// 1. Le decimos al servidor dónde están los archivos estáticos de la interfaz
-app.use(express.static(path.join(__dirname, 'client/dist')));
+// 1. Corregimos la ruta apuntando hacia afuera para encontrar la carpeta client
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // 2. Cualquier ruta que no sea de la API, que cargue la pantalla visual (index.html)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/dist/index.html'));
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 // ─── Manejo de errores global ────────────────────────────────────────────────
