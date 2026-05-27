@@ -50,4 +50,3 @@ app.listen(port, '0.0.0.0', () => {
   console.log(`✓ Servidor SINTRAAPP corriendo en el puerto: ${port}`);
   console.log(`  Endpoint OCR listo para recibir peticiones`);
 });
-
