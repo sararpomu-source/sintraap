@@ -27,14 +27,14 @@ app.get('/health', (req, res) => {
   res.json({ estado: 'activo', timestamp: new Date().toISOString() });
 });
 
-// ─── Conexión con el Frontend (Interfaz Visual) ──────────────────────────────
+// ─── Conexión con el Frontend (Interfaz Visual CORREGIDA) ────────────────────
 
-// 1. Corregimos la ruta apuntando hacia afuera para encontrar la carpeta client
+// 1. Apuntamos un nivel hacia arriba (../) para encontrar la carpeta client
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // 2. Cualquier ruta que no sea de la API, que cargue la pantalla visual (index.html)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
 });
 
 // ─── Manejo de errores global ────────────────────────────────────────────────
